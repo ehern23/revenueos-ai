@@ -1,0 +1,58 @@
+import type { OutreachHistoryEntry } from "@/data/types";
+
+export const outreachHistory: OutreachHistoryEntry[] = [
+  {
+    id: "outreach-001",
+    accountId: "stripe",
+    channel: "email",
+    subject: "AI infrastructure launch and enterprise expansion opportunities",
+    status: "replied",
+    owner: "Maya Chen",
+    timestamp: "2026-03-06T15:00:00Z",
+  },
+  {
+    id: "outreach-002",
+    accountId: "ramp",
+    channel: "linkedin",
+    subject: "Thought starter on ML hiring and workflow intelligence",
+    status: "sent",
+    owner: "Avery Morgan",
+    timestamp: "2026-03-07T13:25:00Z",
+  },
+  {
+    id: "outreach-003",
+    accountId: "snowflake",
+    channel: "email",
+    subject: "Connecting platform expansion to strategic account coverage",
+    status: "drafted",
+    owner: "Jordan Lee",
+    timestamp: "2026-03-08T10:05:00Z",
+  },
+  {
+    id: "outreach-004",
+    accountId: "databricks",
+    channel: "call",
+    subject: "Enterprise adoption follow-up",
+    status: "scheduled",
+    owner: "Nina Shah",
+    timestamp: "2026-03-09T18:00:00Z",
+  },
+  {
+    id: "outreach-005",
+    accountId: "openai",
+    channel: "email",
+    subject: "Enterprise expansion workflow preview",
+    status: "sent",
+    owner: "Maya Chen",
+    timestamp: "2026-03-10T16:45:00Z",
+  },
+  {
+    id: "outreach-006",
+    accountId: "scale-ai",
+    channel: "linkedin",
+    subject: "Territory planning and signal monitoring ideas",
+    status: "replied",
+    owner: "Avery Morgan",
+    timestamp: "2026-03-11T12:15:00Z",
+  },
+];
