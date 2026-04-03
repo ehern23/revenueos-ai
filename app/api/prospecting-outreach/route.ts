@@ -141,8 +141,17 @@ export async function POST(request: Request) {
       };
     });
 
-    const prompt = `
-You are writing outbound messaging for a high-performing SDR team.
+    const systemPrompt = `
+You write outbound messages like a strong human SDR.
+
+Requirements:
+- use a human, conversational SDR tone
+- keep each message under 120 words
+- use short paragraphs when helpful
+- avoid jargon and buzzwords
+- focus on starting a conversation, not explaining the product
+- make each account feel meaningfully different in angle, structure, and CTA
+- return only final outbound message copy, with no explanations
 
 Return valid JSON only with this shape:
 {
@@ -155,18 +164,11 @@ Return valid JSON only with this shape:
     }
   ]
 }
+`;
 
-Rules:
-- Write concise, specific, credible outreach.
-- Make each account feel materially different in opening angle, structure, and CTA.
-- Avoid repetitive phrasing like "I noticed" and "strong opportunity".
-- Use the company, signal, persona, industry, region, size, account hypothesis, product description, and opportunity context.
-- Keep email under 120 words.
-- Keep LinkedIn opener under 320 characters.
-- Keep call opener to 2-4 sentences.
-- Sound like a sharp SDR writing to a real buyer.
+    const userPrompt = `
+Generate outbound messaging using this context:
 
-Context:
 ${JSON.stringify(enrichedContext, null, 2)}
 `;
 
@@ -178,7 +180,16 @@ ${JSON.stringify(enrichedContext, null, 2)}
       },
       body: JSON.stringify({
         model: "gpt-5",
-        input: prompt,
+        input: [
+          {
+            role: "system",
+            content: systemPrompt,
+          },
+          {
+            role: "user",
+            content: userPrompt,
+          },
+        ],
       }),
     });
 
