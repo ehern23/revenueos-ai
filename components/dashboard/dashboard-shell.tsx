@@ -4,47 +4,43 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import {
+  BarChart3,
   Bot,
   Building2,
   CalendarRange,
   CircleUserRound,
-  Compass,
-  LayoutDashboard,
+  Crosshair,
   type LucideIcon,
   PanelLeftClose,
-  Radar,
   Radio,
   Search,
-  Map,
-  MessageSquareMore,
+  Sparkles,
   Command,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
+  allNavigation,
   appNavigation,
   defaultAppHref,
   type AppNavigationItem,
 } from "@/lib/app-navigation";
 import { cn } from "@/lib/utils";
 
-const iconMap: Record<AppNavigationItem["href"], LucideIcon> = {
+const iconMap: Record<string, LucideIcon> = {
+  "/prospecting-copilot": Crosshair,
   "/signal-feed": Radio,
-  "/prospecting-copilot": Compass,
-  "/revenue-command-center": LayoutDashboard,
-  "/territory-strategist": Map,
   "/account-intelligence": Building2,
   "/weekly-pipeline-plan": CalendarRange,
-  "/sales-ai-assistant": MessageSquareMore,
-  "/autonomous-mode": Bot,
-  "/territory-attack-simulation": Radar,
+  "/revenue-command-center": BarChart3,
+  "/sales-ai-assistant": Sparkles,
 } as const;
 
 export function DashboardShell({ children }: Readonly<{ children: ReactNode }>) {
   const pathname = usePathname();
   const activePage =
-    appNavigation.find((item) => item.href === pathname) ??
-    appNavigation.find((item) => item.href === defaultAppHref);
+    allNavigation.find((item) => item.href === pathname) ??
+    allNavigation.find((item) => item.href === defaultAppHref);
 
   return (
     <div className="min-h-screen bg-[#0A0E17] text-slate-100">
