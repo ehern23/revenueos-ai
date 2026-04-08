@@ -275,7 +275,7 @@ function AccountCard({
         <CardHeader className="pb-4">
           <div className="flex items-start gap-4">
             {/* Rank Badge */}
-            <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 font-mono text-sm font-bold text-amber-500">
+            <div className="flex size-8 shrink-0 items-center justify-center rounded-full border-l-2 border-amber-500 bg-amber-500/10 font-mono text-sm font-bold text-amber-500">
               {index + 1}
             </div>
 
@@ -439,11 +439,11 @@ function AccountCard({
         <button
           type="button"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="flex w-full items-center justify-center gap-2 border-t border-white/[0.06] py-3 text-xs font-medium text-slate-400 transition-colors hover:bg-white/[0.02] hover:text-slate-200"
+          className="flex w-full items-center justify-center gap-1.5 border-t border-white/[0.06] py-3 text-xs text-slate-500 transition-colors hover:bg-white/[0.02] hover:text-slate-400"
         >
           {isExpanded ? "Collapse" : "Expand details"}
           <ChevronDown
-            className={`size-4 transition-transform duration-300 ${
+            className={`size-3.5 transition-transform duration-300 ease-out ${
               isExpanded ? "rotate-180" : ""
             }`}
           />
@@ -699,7 +699,7 @@ export function ProspectingCopilotWorkspace() {
 
               {/* Generate Pipeline Button */}
               <Button
-                className="w-full bg-amber-500 py-6 text-[#0A0E17] shadow-lg shadow-amber-500/25 transition-all duration-200 hover:bg-amber-400 hover:shadow-amber-500/40 hover:shadow-xl"
+                className="w-full bg-amber-500 py-6 text-[#0A0E17] shadow-lg shadow-amber-500/25 transition-all duration-200 hover:bg-amber-400 hover:[box-shadow:0_0_20px_rgba(245,158,11,0.3),0_10px_15px_-3px_rgba(245,158,11,0.4)]"
                 onClick={handleGeneratePipeline}
                 disabled={isGenerating}
               >
@@ -720,7 +720,7 @@ export function ProspectingCopilotWorkspace() {
         </div>
 
         {/* Right Column - Account Results (60%) */}
-        <div className="space-y-4 lg:w-[60%]">
+        <div className="space-y-6 lg:w-[60%]">
           {results.length === 0 && !isGenerating ? (
             <Card className="border-white/[0.06] bg-[#111827]">
               <CardContent className="flex flex-col items-center justify-center py-16 text-center">
