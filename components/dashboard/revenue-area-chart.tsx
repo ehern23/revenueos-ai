@@ -21,20 +21,20 @@ import { revenueSeries } from "@/lib/dashboard-data";
 const chartConfig = {
   actual: {
     label: "Actual revenue",
-    color: "#0f172a",
+    color: "#F59E0B",
   },
   target: {
     label: "Target",
-    color: "#60a5fa",
+    color: "#3B82F6",
   },
 };
 
 export function RevenueAreaChart() {
   return (
-    <Card className="border-slate-200/70 bg-white/80 shadow-sm backdrop-blur">
+    <Card className="card-hover border-white/[0.06] bg-[#111827]">
       <CardHeader>
-        <CardTitle>Revenue velocity</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-slate-100">Revenue velocity</CardTitle>
+        <CardDescription className="text-slate-400">
           Actuals versus target across the current operating window.
         </CardDescription>
       </CardHeader>
@@ -47,29 +47,31 @@ export function RevenueAreaChart() {
           >
             <defs>
               <linearGradient id="actualFill" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="5%" stopColor="var(--color-actual)" stopOpacity={0.28} />
+                <stop offset="5%" stopColor="var(--color-actual)" stopOpacity={0.35} />
                 <stop offset="95%" stopColor="var(--color-actual)" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="targetFill" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="5%" stopColor="var(--color-target)" stopOpacity={0.18} />
+                <stop offset="5%" stopColor="var(--color-target)" stopOpacity={0.25} />
                 <stop offset="95%" stopColor="var(--color-target)" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid vertical={false} strokeDasharray="3 3" />
+            <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
             <XAxis
               dataKey="month"
               tickLine={false}
               axisLine={false}
               tickMargin={10}
               tickFormatter={(value) => value.slice(0, 3)}
+              stroke="#64748B"
+              fontSize={12}
             />
             <ChartTooltip
               content={
                 <ChartTooltipContent
                   formatter={(value, name) => (
                     <div className="flex w-full items-center justify-between gap-8">
-                      <span className="text-muted-foreground">{name}</span>
-                      <span className="font-medium text-foreground">${value}k</span>
+                      <span className="text-slate-400">{name}</span>
+                      <span className="font-mono font-medium text-slate-100">${value}k</span>
                     </div>
                   )}
                 />

@@ -14,10 +14,10 @@ export function MetricCard({ metric }: Readonly<{ metric: Metric }>) {
   const TrendIcon = isPositive ? ArrowUpRight : ArrowDownRight;
 
   return (
-    <Card className="border-slate-200/70 bg-white/80 shadow-sm backdrop-blur">
+    <Card className="card-hover border-white/[0.06] bg-[#111827]">
       <CardHeader className="space-y-1">
-        <CardDescription>{metric.label}</CardDescription>
-        <CardTitle className="text-3xl font-semibold tracking-tight">
+        <CardDescription className="text-slate-500">{metric.label}</CardDescription>
+        <CardTitle className="font-mono text-3xl font-semibold tracking-tight text-slate-100">
           {metric.value}
         </CardTitle>
       </CardHeader>
@@ -25,8 +25,8 @@ export function MetricCard({ metric }: Readonly<{ metric: Metric }>) {
         <span
           className={
             isPositive
-              ? "flex items-center gap-1 text-emerald-700"
-              : "flex items-center gap-1 text-amber-700"
+              ? "flex items-center gap-1 font-mono text-emerald-400"
+              : "flex items-center gap-1 font-mono text-amber-500"
           }
         >
           <TrendIcon className="size-4" />

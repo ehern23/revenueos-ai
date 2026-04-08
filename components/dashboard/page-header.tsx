@@ -14,15 +14,15 @@ export function PageHeader({
   actions,
 }: Readonly<PageHeaderProps>) {
   return (
-    <section className="flex flex-col gap-4 rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm backdrop-blur lg:flex-row lg:items-end lg:justify-between">
+    <section className="card-hover flex flex-col gap-4 rounded-xl border border-white/[0.06] bg-[#111827] p-6 lg:flex-row lg:items-end lg:justify-between">
       <div className="max-w-2xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.26em] text-slate-400">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-500">
           {eyebrow}
         </p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">
           {title}
         </h1>
-        <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
+        <p className="mt-3 text-sm leading-relaxed text-slate-400 sm:text-base">
           {description}
         </p>
       </div>

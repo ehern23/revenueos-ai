@@ -222,7 +222,7 @@ export function ProspectingCopilotWorkspace() {
         description="Turn a narrow ICP and product narrative into a strategic target list using the existing mock account, signal, and trend data."
         actions={
           <Button
-            className="bg-blue-600 text-white hover:bg-blue-700"
+            className="bg-amber-500 text-[#0A0E17] shadow-lg shadow-amber-500/20 hover:bg-amber-400"
             onClick={handleGeneratePipeline}
             disabled={isGenerating}
           >
@@ -237,29 +237,29 @@ export function ProspectingCopilotWorkspace() {
       />
 
       {generationError ? (
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+        <div className="rounded-xl border border-amber-500/20 bg-amber-500/10 px-4 py-3 text-sm text-amber-400">
           {generationError}
         </div>
       ) : null}
 
-      <Card className="border-slate-200 bg-slate-50 shadow-sm">
+      <Card className="card-hover border-white/[0.06] bg-[#111827]">
         <CardHeader>
-          <CardTitle>Pipeline inputs</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-slate-100">Pipeline inputs</CardTitle>
+          <CardDescription className="text-slate-400">
             Keep the filters simple for now. The scoring logic is deterministic
             and uses only the local mock data layer.
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4 lg:grid-cols-2">
           <label className="space-y-2">
-            <span className="text-sm font-medium text-slate-700">Industry</span>
+            <span className="text-sm font-medium text-slate-300">Industry</span>
             <select
               value={inputs.industry}
               onChange={(event) => updateInput("industry", event.target.value)}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-300 focus:ring-4 focus:ring-blue-100"
+              className="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20"
             >
               {industryOptions.map((option) => (
-                <option key={option} value={option}>
+                <option key={option} value={option} className="bg-[#111827] text-slate-100">
                   {option}
                 </option>
               ))}
@@ -267,14 +267,14 @@ export function ProspectingCopilotWorkspace() {
           </label>
 
           <label className="space-y-2">
-            <span className="text-sm font-medium text-slate-700">Persona</span>
+            <span className="text-sm font-medium text-slate-300">Persona</span>
             <select
               value={inputs.persona}
               onChange={(event) => updateInput("persona", event.target.value)}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-300 focus:ring-4 focus:ring-blue-100"
+              className="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20"
             >
               {personaOptions.map((option) => (
-                <option key={option} value={option}>
+                <option key={option} value={option} className="bg-[#111827] text-slate-100">
                   {option}
                 </option>
               ))}
@@ -282,14 +282,14 @@ export function ProspectingCopilotWorkspace() {
           </label>
 
           <label className="space-y-2">
-            <span className="text-sm font-medium text-slate-700">Region</span>
+            <span className="text-sm font-medium text-slate-300">Region</span>
             <select
               value={inputs.region}
               onChange={(event) => updateInput("region", event.target.value)}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-300 focus:ring-4 focus:ring-blue-100"
+              className="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20"
             >
               {regionOptions.map((option) => (
-                <option key={option} value={option}>
+                <option key={option} value={option} className="bg-[#111827] text-slate-100">
                   {option}
                 </option>
               ))}
@@ -297,16 +297,16 @@ export function ProspectingCopilotWorkspace() {
           </label>
 
           <label className="space-y-2">
-            <span className="text-sm font-medium text-slate-700">
+            <span className="text-sm font-medium text-slate-300">
               Company size
             </span>
             <select
               value={inputs.companySize}
               onChange={(event) => updateInput("companySize", event.target.value)}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-300 focus:ring-4 focus:ring-blue-100"
+              className="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-sm text-slate-100 outline-none transition focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20"
             >
               {companySizeOptions.map((option) => (
-                <option key={option} value={option}>
+                <option key={option} value={option} className="bg-[#111827] text-slate-100">
                   {option}
                 </option>
               ))}
@@ -314,7 +314,7 @@ export function ProspectingCopilotWorkspace() {
           </label>
 
           <label className="space-y-2 lg:col-span-2">
-            <span className="text-sm font-medium text-slate-700">
+            <span className="text-sm font-medium text-slate-300">
               Product description
             </span>
             <textarea
@@ -323,7 +323,7 @@ export function ProspectingCopilotWorkspace() {
                 updateInput("productDescription", event.target.value)
               }
               rows={4}
-              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-900 outline-none transition focus:border-blue-300 focus:ring-4 focus:ring-blue-100"
+              className="w-full rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-sm leading-relaxed text-slate-100 outline-none transition focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20"
             />
           </label>
         </CardContent>
@@ -331,38 +331,38 @@ export function ProspectingCopilotWorkspace() {
 
       <div className="grid gap-4">
         {results.map((result, index) => (
-          <Card key={result.account.id} className="border-slate-200 bg-slate-50 shadow-sm">
+          <Card key={result.account.id} className="card-hover border-white/[0.06] bg-[#111827]">
             <CardHeader className="gap-4">
               <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                 <div className="space-y-3">
                   <div className="flex flex-wrap items-center gap-2">
-                    <Badge className="border border-blue-100 bg-blue-50 text-blue-700 hover:bg-blue-50">
+                    <Badge className="border border-amber-500/20 bg-amber-500/10 text-amber-500 hover:bg-amber-500/10">
                       Priority #{index + 1}
                     </Badge>
-                    <Badge variant="outline" className="border-slate-300 bg-white text-slate-700">
+                    <Badge variant="outline" className="border-white/[0.1] bg-white/[0.02] font-mono text-slate-300">
                       Score {result.score}
                     </Badge>
-                    <Badge variant="outline" className="border-slate-300 bg-white text-slate-700">
+                    <Badge variant="outline" className="border-white/[0.1] bg-white/[0.02] text-slate-300">
                       {result.account.region}
                     </Badge>
                   </div>
                   <div>
-                    <CardTitle className="text-2xl text-slate-950">
+                    <CardTitle className="text-2xl text-slate-100">
                       {result.account.name}
                     </CardTitle>
-                    <CardDescription className="mt-2 max-w-3xl text-base leading-7 text-slate-600">
+                    <CardDescription className="mt-2 max-w-3xl text-base leading-relaxed text-slate-400">
                       {result.account.industry} · {result.account.employeeRange} employees · Persona to target:{" "}
-                      <span className="font-medium text-slate-900">
+                      <span className="font-medium text-slate-200">
                         {result.persona}
                       </span>
                     </CardDescription>
                   </div>
                 </div>
-                <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-right">
-                  <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-right">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500">
                     Best signal
                   </p>
-                  <p className="mt-2 text-sm font-medium text-slate-900">
+                  <p className="mt-2 text-sm font-medium text-slate-200">
                     {result.signal.title}
                   </p>
                   <p className="mt-2 text-xs text-slate-500">
@@ -374,14 +374,14 @@ export function ProspectingCopilotWorkspace() {
 
             <CardContent className="grid gap-4">
               <div className="grid gap-4 xl:grid-cols-2">
-                <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
                   <p className="text-sm font-medium text-slate-500">Account hypothesis</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-700">
+                  <p className="mt-2 text-sm leading-relaxed text-slate-300">
                     {result.hypothesis}
                   </p>
                 </div>
 
-                <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <p className="text-sm font-medium text-slate-500">
                       Outreach drafts
@@ -389,14 +389,14 @@ export function ProspectingCopilotWorkspace() {
                     <div className="flex items-center gap-2">
                       <Badge
                         variant="outline"
-                        className="border-slate-300 bg-white text-slate-700"
+                        className="border-white/[0.1] bg-white/[0.02] text-slate-300"
                       >
                         {result.outreach.source === "openai"
                           ? "AI-tailored"
                           : "Deterministic fallback"}
                       </Badge>
                       {isGenerating ? (
-                        <Badge className="bg-blue-50 text-blue-700 hover:bg-blue-50">
+                        <Badge className="border border-blue-500/20 bg-blue-500/10 text-blue-400 hover:bg-blue-500/10">
                           <LoaderCircle className="mr-1 size-3 animate-spin" />
                           Generating
                         </Badge>
@@ -415,10 +415,10 @@ export function ProspectingCopilotWorkspace() {
                               [result.account.id]: channel,
                             }))
                           }
-                          className={`rounded-full border px-3 py-1.5 text-xs font-medium capitalize transition ${
+                          className={`rounded-lg border px-3 py-1.5 text-xs font-medium capitalize transition-all duration-150 ${
                             getSelectedChannel(result.account.id) === channel
-                              ? "border-blue-200 bg-blue-50 text-blue-700"
-                              : "border-slate-200 bg-white text-slate-600"
+                              ? "border-amber-500/30 bg-amber-500/10 text-amber-500"
+                              : "border-white/[0.06] bg-transparent text-slate-400 hover:border-white/[0.1] hover:text-slate-200"
                           }`}
                         >
                           {channel === "call" ? "Call opener" : channel}
@@ -426,23 +426,23 @@ export function ProspectingCopilotWorkspace() {
                       ),
                     )}
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-slate-700">
+                  <p className="mt-2 text-sm leading-relaxed text-slate-300">
                     {result.outreach[getSelectedChannel(result.account.id)]}
                   </p>
                   {result.outreach.error ? (
-                    <p className="mt-3 text-xs text-amber-700">
+                    <p className="mt-3 text-xs text-amber-400">
                       {result.outreach.error}
                     </p>
                   ) : null}
                 </div>
               </div>
 
-              <details className="group rounded-2xl border border-slate-200 bg-white p-4">
-                <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-medium text-slate-900">
+              <details className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-medium text-slate-200">
                   Why this account?
-                  <ChevronDown className="size-4 text-slate-400 transition group-open:rotate-180" />
+                  <ChevronDown className="size-4 text-slate-500 transition group-open:rotate-180" />
                 </summary>
-                <div className="mt-4 space-y-2 text-sm leading-6 text-slate-600">
+                <div className="mt-4 space-y-2 text-sm leading-relaxed text-slate-400">
                   {result.whyThisAccount.map((reason) => (
                     <p key={reason}>{reason}</p>
                   ))}
@@ -452,83 +452,83 @@ export function ProspectingCopilotWorkspace() {
                 </div>
               </details>
 
-              <details className="group rounded-2xl border border-slate-200 bg-white p-4">
-                <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-medium text-slate-900">
+              <details className="group rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-medium text-slate-200">
                   Company Research
                   <div className="flex items-center gap-2">
                     <Badge
                       variant="outline"
-                      className="border-slate-300 bg-white text-slate-700"
+                      className="border-white/[0.1] bg-white/[0.02] text-slate-300"
                     >
                       {result.research.source === "openai"
                         ? "AI researched"
                         : "Mock research"}
                     </Badge>
-                    <ChevronDown className="size-4 text-slate-400 transition group-open:rotate-180" />
+                    <ChevronDown className="size-4 text-slate-500 transition group-open:rotate-180" />
                   </div>
                 </summary>
                 <div className="mt-4 grid gap-4 xl:grid-cols-2">
-                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="rounded-xl border border-white/[0.06] bg-[#0A0E17]/50 p-4">
                     <p className="text-sm font-medium text-slate-500">
                       Company overview
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-slate-700">
+                    <p className="mt-2 text-sm leading-relaxed text-slate-300">
                       {result.research.companyOverview}
                     </p>
                   </div>
-                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="rounded-xl border border-white/[0.06] bg-[#0A0E17]/50 p-4">
                     <p className="text-sm font-medium text-slate-500">
                       Product focus
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-slate-700">
+                    <p className="mt-2 text-sm leading-relaxed text-slate-300">
                       {result.research.productFocus}
                     </p>
                   </div>
-                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="rounded-xl border border-white/[0.06] bg-[#0A0E17]/50 p-4">
                     <p className="text-sm font-medium text-slate-500">
                       Strategic direction
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-slate-700">
+                    <p className="mt-2 text-sm leading-relaxed text-slate-300">
                       {result.research.strategicDirection}
                     </p>
                   </div>
-                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="rounded-xl border border-white/[0.06] bg-[#0A0E17]/50 p-4">
                     <p className="text-sm font-medium text-slate-500">
                       Market position
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-slate-700">
+                    <p className="mt-2 text-sm leading-relaxed text-slate-300">
                       {result.research.marketPosition}
                     </p>
                   </div>
-                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="rounded-xl border border-white/[0.06] bg-[#0A0E17]/50 p-4">
                     <p className="text-sm font-medium text-slate-500">
                       Likely priorities
                     </p>
-                    <div className="mt-2 space-y-2 text-sm leading-6 text-slate-700">
+                    <div className="mt-2 space-y-2 text-sm leading-relaxed text-slate-300">
                       {result.research.likelyPriorities.map((priority) => (
                         <p key={priority}>{priority}</p>
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="rounded-xl border border-white/[0.06] bg-[#0A0E17]/50 p-4">
                     <p className="text-sm font-medium text-slate-500">
                       Possible pain points
                     </p>
-                    <div className="mt-2 space-y-2 text-sm leading-6 text-slate-700">
+                    <div className="mt-2 space-y-2 text-sm leading-relaxed text-slate-300">
                       {result.research.possiblePainPoints.map((painPoint) => (
                         <p key={painPoint}>{painPoint}</p>
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 xl:col-span-2">
+                  <div className="rounded-xl border border-white/[0.06] bg-[#0A0E17]/50 p-4 xl:col-span-2">
                     <p className="text-sm font-medium text-slate-500">
                       Recommended GTM angle
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-slate-700">
+                    <p className="mt-2 text-sm leading-relaxed text-slate-300">
                       {result.research.recommendedGtmAngle}
                     </p>
                     {result.research.error ? (
-                      <p className="mt-3 text-xs text-amber-700">
+                      <p className="mt-3 text-xs text-amber-400">
                         {result.research.error}
                       </p>
                     ) : null}
