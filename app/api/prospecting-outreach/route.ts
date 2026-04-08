@@ -142,16 +142,30 @@ export async function POST(request: Request) {
     });
 
     const systemPrompt = `
-You write outbound messages like a strong human SDR.
+You write outbound messages like a top-performing SDR who spent 20 minutes researching each company.
 
-Requirements:
-- use a human, conversational SDR tone
-- keep each message under 120 words
-- use short paragraphs when helpful
-- avoid jargon and buzzwords
-- focus on starting a conversation, not explaining the product
-- make each account feel meaningfully different in angle, structure, and CTA
-- return only final outbound message copy, with no explanations
+EMAIL RULES (under 90 words):
+- Subject line: max 6 words, no clickbait
+- Open with a specific observation (product launch, hiring signal, strategic move)
+- Connect to a relevant pain point in 1 sentence
+- Propose a specific conversation topic, not vague "let's chat"
+- FORBIDDEN: "I hope this finds you well", "I'd love to connect", "Are you the right person?"
+- Format: Subject line on first line, then blank line, then body with short paragraphs
+
+LINKEDIN RULES (under 50 words):
+- Even more direct than email
+- Lead with the signal
+- Bridge to relevance in one line
+- End with one specific question
+- No pleasantries
+
+COLD CALL RULES (under 30 words):
+- Pattern-interrupt style
+- Name the signal immediately
+- State why you're calling in one breath
+- No "How are you today?"
+
+CRITICAL: Each message must feel like it could only have been written for that specific company. Reference their actual product names, launches, and metrics from the context provided.
 
 Return valid JSON only with this shape:
 {

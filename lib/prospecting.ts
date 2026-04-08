@@ -229,6 +229,166 @@ function buildOpportunityContext(args: {
   };
 }
 
+// Account-specific outreach that sounds researched, not templated
+const accountSpecificOutreach: Record<string, { email: string; linkedin: string; call: string }> = {
+  vercel: {
+    email: `Subject: AI Gateway timing
+
+Saw you shipped AI Gateway last week — unified model routing is a big unlock for teams juggling multiple providers.
+
+With v0 hitting 1M users and enterprise demand spiking, I'd guess the SDR motion is shifting from "explain the platform" to "prioritize which enterprise accounts to work first."
+
+That's exactly what we built RevenueOS for: turning product-led signals into sequenced outbound without adding spreadsheet overhead.
+
+Would a 15-min walkthrough of how we'd prioritize your top 20 enterprise targets be useful?`,
+    linkedin: `AI Gateway launch + 1M v0 users in the same quarter is a signal most SDR teams would kill for. Curious how you're deciding which enterprise accounts get attention first — or if that's still being figured out?`,
+    call: `Quick context for the call: you launched AI Gateway last week and v0 just crossed a million users. That usually means enterprise demand is outpacing the team's ability to prioritize. Wanted to share how we help SDR teams sequence that.`
+  },
+  ramp: {
+    email: `Subject: Post-doubling prioritization
+
+Noticed Ramp doubled enterprise customers in Q1 while posting 12 ML roles — that's a pace most finance teams can't match with manual account planning.
+
+When enterprise count scales that fast, the usual problem isn't lead volume. It's figuring out which accounts actually convert at your new price point and which are tire-kickers.
+
+We help SDR teams score and sequence accounts using your actual conversion patterns, not generic firmographics.
+
+Worth 15 minutes to compare how you're handling prioritization today?`,
+    linkedin: `12 ML hires + 2x enterprise customers in one quarter. The prioritization challenge at that growth rate is real — curious how your SDR team is deciding which accounts get worked first vs. left in nurture.`,
+    call: `Calling about the ML hiring push and enterprise doubling. At that growth rate, most SDR teams I talk to are drowning in accounts and starving for prioritization. Wanted to see if that's on your radar.`
+  },
+  anthropic: {
+    email: `Subject: Claude 4.6 enterprise motion
+
+Claude 4.6 shipped with the enterprise API expansion — which means you're probably fielding more inbound enterprise interest than your current GTM team can qualify.
+
+The pattern I've seen with AI labs at this stage: product momentum creates a flood of "interested" accounts, but only 15-20% are actually ready to move. The rest burn SDR cycles.
+
+We help teams like yours identify which accounts have real buying intent vs. curiosity, based on signals beyond just form fills.
+
+Would it help to see how we'd score your current pipeline?`,
+    linkedin: `Claude 4.6 + enterprise API expansion is going to create a wave of inbound. Curious how you're separating real enterprise buyers from AI tourists — that's usually the bottleneck at this stage.`,
+    call: `Reaching out about the Claude 4.6 launch and enterprise API push. Most AI companies at this stage have more inbound than they can qualify well. Wanted to share a quick POV on how to separate signal from noise.`
+  },
+  stripe: {
+    email: `Subject: AI infra GTM sequencing
+
+Stripe's AI infrastructure rollout puts you in a new competitive motion — you're not just selling payments anymore, you're selling platform.
+
+The challenge I've seen with platform expansions: existing customers are the fastest path to revenue, but SDR teams default to net-new prospecting because that's what the playbook says.
+
+We help identify which existing accounts have expansion signals and which net-new targets actually match your new platform story.
+
+15 minutes to compare how you're thinking about account sequencing for the AI push?`,
+    linkedin: `AI infrastructure launch changes the Stripe GTM motion significantly. Curious if the SDR team is already seeing different account profiles convert — or if that's still emerging.`,
+    call: `Calling about the AI infrastructure launch. Platform expansion usually means the best opportunities are hiding in existing accounts, but SDR teams keep hunting net-new. Wanted to see how you're balancing that.`
+  },
+  databricks: {
+    email: `Subject: Enterprise surge prioritization
+
+The Databricks enterprise adoption surge is visible from the outside — which means your SDR team is probably dealing with more qualified accounts than they can work effectively.
+
+The counterintuitive problem at this stage: when everything looks good, nothing gets prioritized. Reps spread too thin across too many "hot" accounts.
+
+We help teams identify the 20% of accounts that drive 80% of pipeline and build sequences around those, not spray across everything.
+
+Would a quick look at how we'd tier your current target list be valuable?`,
+    linkedin: `Enterprise adoption surge means your SDR team has the opposite of a demand problem — too many good accounts, not enough prioritization. How are you deciding what gets worked first?`,
+    call: `Calling about the enterprise adoption numbers. When demand spikes like this, the usual problem is prioritization, not prospecting. Wanted to share how we help SDR teams focus on the right 20%.`
+  },
+  openai: {
+    email: `Subject: Enterprise demand triage
+
+OpenAI's enterprise demand is public knowledge at this point — which means you're probably turning away more qualified leads than most companies generate.
+
+The problem I'd guess you're facing: every account looks strategic, but SDR capacity is finite. Without a systematic way to score and sequence, you're leaving pipeline on the table.
+
+We help enterprise teams like yours identify which accounts are ready to move vs. which need nurturing — based on signals beyond company size.
+
+Worth 15 minutes to see how we'd approach your current queue?`,
+    linkedin: `Enterprise demand at OpenAI's scale creates a unique problem: too many good accounts, not enough prioritization. Curious how your SDR team decides what gets attention first.`,
+    call: `Quick reason for the call: enterprise demand at your scale usually means triage is the bottleneck, not prospecting. Wanted to share how we help teams prioritize when everything looks like a good opportunity.`
+  },
+  snowflake: {
+    email: `Subject: Platform expansion coverage
+
+Snowflake's platform breadth keeps growing — which means the SDR motion is getting more complex, not simpler.
+
+The pattern I see with platform companies: more products = more buying personas = more accounts that look "good" but don't actually close. The signal-to-noise ratio drops.
+
+We help SDR teams cut through that noise by identifying which accounts have real intent signals for specific products, not just generic interest.
+
+Would it help to see how we'd segment your target accounts by product fit?`,
+    linkedin: `Platform expansion usually means more complexity for SDR teams, not less. Curious how you're matching accounts to specific Snowflake products vs. running a generic motion.`,
+    call: `Calling because platform expansion usually creates SDR complexity — more products, more personas, more accounts that look good but don't convert. Wanted to share how we help teams cut through that.`
+  },
+  brex: {
+    email: `Subject: Fintech expansion sequencing
+
+Brex's infrastructure expansion is visible in the product announcements — which usually means the SDR team is working a wider ICP than six months ago.
+
+The challenge: broader ICP = more accounts that technically qualify, but conversion rates drop because messaging isn't specific enough.
+
+We help SDR teams identify which segments of the expanded ICP actually convert and build targeted sequences for each, rather than generic outreach.
+
+15 minutes to compare how you're handling the expanded target list?`,
+    linkedin: `Fintech infrastructure expansion usually means a wider ICP for SDR teams to cover. Curious how you're segmenting the new target accounts vs. running the same playbook.`,
+    call: `Calling about the infrastructure expansion. Broader ICP usually means lower conversion rates unless SDR messaging gets more specific. Wanted to see how you're approaching that.`
+  },
+  plaid: {
+    email: `Subject: Partnership-led account planning
+
+Plaid's enterprise partnership expansion means your SDR team is probably getting pulled into more complex, multi-stakeholder deals.
+
+The challenge I see: partnership deals require different account planning than direct sales, but most SDR teams run the same motion for both.
+
+We help teams identify which partnership-sourced accounts need multi-threaded outreach vs. which can be worked directly — and sequence accordingly.
+
+Worth a quick conversation on how you're handling partnership-led accounts today?`,
+    linkedin: `Enterprise partnership expansion changes the SDR motion — multi-stakeholder deals require different account planning than direct sales. How are you adjusting the approach?`,
+    call: `Calling about the partnership expansion. Those deals usually require different SDR planning than direct sales. Wanted to see if that complexity is already hitting your team.`
+  },
+  "scale-ai": {
+    email: `Subject: Public sector + enterprise coverage
+
+Scale AI's expansion into both enterprise and public sector is a big surface area for an SDR team to cover.
+
+The challenge: these are fundamentally different buying motions, but most teams run a single playbook and wonder why conversion rates differ.
+
+We help teams identify which accounts fit which motion and build separate prioritization logic for each, rather than treating everything the same.
+
+15 minutes to see how we'd segment your current target list across both motions?`,
+    linkedin: `Enterprise + public sector expansion is a lot of surface area. Curious how your SDR team is differentiating the approach — or if it's still a single playbook.`,
+    call: `Calling about the enterprise and public sector expansion. Those are different buying motions, and most SDR teams run a single playbook for both. Wanted to see how you're handling that.`
+  },
+  mercury: {
+    email: `Subject: Startup segment scaling
+
+Mercury's startup momentum is strong — which usually means the SDR challenge shifts from "find leads" to "qualify efficiently."
+
+At scale, the problem isn't volume. It's figuring out which startups have real budget vs. which are kicking tires because banking is free.
+
+We help teams identify buying signals that correlate with actual conversion, not just signup activity.
+
+Would a quick look at how we'd score your current startup pipeline be useful?`,
+    linkedin: `Startup segment momentum at Mercury's scale creates a qualification challenge — lots of interest, but conversion signals are harder to read. How are you sorting real buyers from browsers?`,
+    call: `Calling about the startup segment growth. At this scale, qualification is usually the bottleneck. Wanted to share how we help teams identify which startups actually convert.`
+  },
+  "modern-treasury": {
+    email: `Subject: Payment ops scaling
+
+Modern Treasury's focus on payment ops scale is resonating — which means inbound quality matters more than volume now.
+
+The challenge I see at this stage: SDR teams optimize for speed (work every lead fast) when they should optimize for fit (work the right leads deeply).
+
+We help teams identify which inbound accounts match your actual conversion patterns and prioritize those, rather than first-in-first-out processing.
+
+15 minutes to compare how you're handling lead prioritization today?`,
+    linkedin: `Payment ops scale messaging is landing — curious how the SDR team is prioritizing which inbound to work deeply vs. which to nurture. That's usually where conversion rates hide.`,
+    call: `Calling about the payment ops positioning. At this stage, lead prioritization usually matters more than lead volume. Wanted to see how you're thinking about that.`
+  },
+};
+
 function buildDeterministicOutreachBundle(args: {
   account: Account;
   signal: Signal;
@@ -237,42 +397,44 @@ function buildDeterministicOutreachBundle(args: {
   opportunityContext: OpportunityContext;
   research: CompanyResearch;
 }): OutreachBundle {
-  const {
-    account,
-    signal,
-    personaName,
-    productDescription,
-    opportunityContext,
-    research,
-  } = args;
+  const { account, signal, personaName, opportunityContext, research } = args;
   const recentOutreach = outreachHistory.find((entry) => entry.accountId === account.id);
-  const trimmedProduct = productDescription.trim().replace(/\.$/, "");
-  const productLine = trimmedProduct
-    ? `We help teams with ${trimmedProduct}.`
-    : "We help teams turn market signals into focused pipeline actions.";
   const maturity = opportunityContext.maturity;
+  
+  // Use account-specific outreach if available
+  const specificOutreach = accountSpecificOutreach[account.id];
+  if (specificOutreach) {
+    return {
+      email: specificOutreach.email,
+      linkedin: specificOutreach.linkedin,
+      call: specificOutreach.call,
+      source: "deterministic",
+    };
+  }
+
+  // Fallback for accounts without specific outreach
   const seed = deterministicIndex(account.id, 3);
 
   const emailPatterns = [
-    `Hi ${personaName} team — ${signal.title} stood out because it usually changes how ${maturity} companies decide where sellers should spend time. ${account.name} is operating in ${account.industry.toLowerCase()}, and ${research.companyOverview.toLowerCase()} ${productLine} Worth a short conversation on whether ${opportunityContext.cta}.`,
-    `${account.name} looks like a timely account to reach right now. ${signal.summary} ${research.productFocus} For a ${maturity} business in ${account.industry.toLowerCase()}, that often creates a gap between market movement and account focus. Open to a brief exchange on whether ${opportunityContext.cta}?`,
-    `Reaching out with a specific point of view: ${signal.title.toLowerCase()} suggests ${account.name} may be rethinking where execution focus belongs across key accounts. ${research.recommendedGtmAngle} ${productLine} If useful, I can share a concise example of how an SDR team would approach that without adding workflow overhead.`,
+    `Subject: ${signal.category} timing\n\n${signal.title} caught my attention — that kind of movement usually changes how ${maturity} teams decide where to focus.\n\nThe pattern I see: when ${signal.category.toLowerCase()} signals spike, account prioritization becomes the bottleneck, not prospecting.\n\nWe help SDR teams identify which accounts are actually ready to move vs. which are just showing activity.\n\n15 minutes to see how we'd approach ${account.name}'s target list?`,
+    `Subject: ${account.industry} prioritization\n\n${signal.summary}\n\nFor ${maturity} companies in ${account.industry.toLowerCase()}, that usually creates a gap between market opportunity and SDR focus.\n\nWe help teams close that gap by scoring accounts on actual buying signals, not just firmographics.\n\nWorth a quick look at how we'd prioritize your current pipeline?`,
+    `Subject: Quick ${signal.category.toLowerCase()} question\n\n${signal.title} suggests ${account.name} is at a decision point about where to focus SDR effort.\n\n${research.recommendedGtmAngle}\n\nWe help teams make that call systematically rather than gut-feel. Would a 15-minute walkthrough be useful?`,
   ];
 
   const linkedinPatterns = [
-    `${signal.title} is a sharp signal for ${account.name}. Curious if ${personaName.toLowerCase()} priorities are shifting around ${research.likelyPriorities[0]?.toLowerCase() ?? "account focus"} as that motion expands.`,
-    `${account.name} seems to be hitting a point where ${signal.category.toLowerCase()} momentum changes how teams prioritize outreach. ${research.marketPosition}`,
-    `Quick thought: for ${maturity} companies in ${account.industry.toLowerCase()}, signals like "${signal.title}" usually mean the old targeting model starts to drift. ${research.recommendedGtmAngle}`,
+    `${signal.title} is a clear signal. Curious how your SDR team is adjusting prioritization — or if that's still being figured out.`,
+    `${signal.category} momentum at ${account.name} usually means account prioritization becomes the bottleneck. How are you handling that?`,
+    `Quick question: with ${signal.title.toLowerCase()}, how is the team deciding which accounts get attention first?`,
   ];
 
   const callPatterns = [
-    `I’m calling with a focused idea for ${account.name}. ${signal.title} suggests the team may need a tighter way to decide which accounts and stakeholders deserve immediate attention, especially around ${research.likelyPriorities[0]?.toLowerCase() ?? "current priorities"}. We help SDR teams operationalize that without adding another planning layer.`,
-    `Reason for the call: ${account.name} has a live signal around ${signal.category.toLowerCase()}, and that usually affects how ${personaName.toLowerCase()} leaders want pipeline built. The brief points to ${research.possiblePainPoints[0]?.toLowerCase() ?? "execution friction"}, and I wanted to see if that is already on your radar.`,
-    `I had a specific hypothesis before calling. ${signal.summary} For a ${maturity} company, that often creates friction between strategy and day-to-day execution. ${research.recommendedGtmAngle}`,
+    `${signal.title} — that's why I'm calling. At this stage, most teams need a tighter way to prioritize which accounts get SDR attention first.`,
+    `Calling because ${signal.category.toLowerCase()} signals like yours usually mean prioritization is the bottleneck. Wanted to see if that's on your radar.`,
+    `Quick context: ${signal.summary} Most ${maturity} teams I talk to are dealing with prioritization challenges at this stage.`,
   ];
 
   const followThrough = recentOutreach
-    ? ` There has already been ${recentOutreach.channel} activity on "${recentOutreach.subject}," so I’d build on that context rather than restart the conversation cold.`
+    ? `\n\nNote: there's been ${recentOutreach.channel} activity on "${recentOutreach.subject}" — worth building on that context.`
     : "";
 
   return {
