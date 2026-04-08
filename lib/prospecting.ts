@@ -229,163 +229,115 @@ function buildOpportunityContext(args: {
   };
 }
 
-// Account-specific outreach that sounds researched, not templated
+// Account-specific outreach - no em-dashes, varied structure, under 75 words
 const accountSpecificOutreach: Record<string, { email: string; linkedin: string; call: string }> = {
   vercel: {
-    email: `Subject: AI Gateway timing
+    email: `Subject: v0 at 1M vs your account list
 
-Saw you shipped AI Gateway last week — unified model routing is a big unlock for teams juggling multiple providers.
+Quick question: with AI Gateway live and v0 crossing a million users, how is the team deciding which enterprise accounts to prioritize first?
 
-With v0 hitting 1M users and enterprise demand spiking, I'd guess the SDR motion is shifting from "explain the platform" to "prioritize which enterprise accounts to work first."
-
-That's exactly what we built RevenueOS for: turning product-led signals into sequenced outbound without adding spreadsheet overhead.
-
-Would a 15-min walkthrough of how we'd prioritize your top 20 enterprise targets be useful?`,
-    linkedin: `AI Gateway launch + 1M v0 users in the same quarter is a signal most SDR teams would kill for. Curious how you're deciding which enterprise accounts get attention first — or if that's still being figured out?`,
-    call: `Quick context for the call: you launched AI Gateway last week and v0 just crossed a million users. That usually means enterprise demand is outpacing the team's ability to prioritize. Wanted to share how we help SDR teams sequence that.`
+That inflection point usually breaks whatever spreadsheet was working before. Happy to share how other PLG teams are handling it if useful.`,
+    linkedin: `AI Gateway plus 1M v0 users. How are you deciding which enterprise accounts get attention first?`,
+    call: `v0 just crossed a million users. Calling to see how you're prioritizing enterprise accounts at that scale.`
   },
   ramp: {
-    email: `Subject: Post-doubling prioritization
+    email: `Subject: Your ML hiring vs your account list
 
-Noticed Ramp doubled enterprise customers in Q1 while posting 12 ML roles — that's a pace most finance teams can't match with manual account planning.
+12 ML roles posted while enterprise customers doubled. That's a signal your product is outpacing your GTM motion.
 
-When enterprise count scales that fast, the usual problem isn't lead volume. It's figuring out which accounts actually convert at your new price point and which are tire-kickers.
-
-We help SDR teams score and sequence accounts using your actual conversion patterns, not generic firmographics.
-
-Worth 15 minutes to compare how you're handling prioritization today?`,
-    linkedin: `12 ML hires + 2x enterprise customers in one quarter. The prioritization challenge at that growth rate is real — curious how your SDR team is deciding which accounts get worked first vs. left in nurture.`,
-    call: `Calling about the ML hiring push and enterprise doubling. At that growth rate, most SDR teams I talk to are drowning in accounts and starving for prioritization. Wanted to see if that's on your radar.`
+Most teams I talk to at this stage have the opposite problem from a year ago: too many qualified accounts, not enough prioritization. Is that landing?`,
+    linkedin: `2x enterprise customers, 12 ML hires. Is prioritization the bottleneck now, or still demand gen?`,
+    call: `Doubled enterprise customers while hiring 12 ML engineers. Curious if prioritization has become the bottleneck.`
   },
   anthropic: {
-    email: `Subject: Claude 4.6 enterprise motion
+    email: `Subject: Claude 4.6 inbound quality
 
-Claude 4.6 shipped with the enterprise API expansion — which means you're probably fielding more inbound enterprise interest than your current GTM team can qualify.
+How much of your post-Claude 4.6 inbound is real enterprise buyers versus AI tourists kicking tires?
 
-The pattern I've seen with AI labs at this stage: product momentum creates a flood of "interested" accounts, but only 15-20% are actually ready to move. The rest burn SDR cycles.
-
-We help teams like yours identify which accounts have real buying intent vs. curiosity, based on signals beyond just form fills.
-
-Would it help to see how we'd score your current pipeline?`,
-    linkedin: `Claude 4.6 + enterprise API expansion is going to create a wave of inbound. Curious how you're separating real enterprise buyers from AI tourists — that's usually the bottleneck at this stage.`,
-    call: `Reaching out about the Claude 4.6 launch and enterprise API push. Most AI companies at this stage have more inbound than they can qualify well. Wanted to share a quick POV on how to separate signal from noise.`
+That ratio is usually around 15-20% at this stage. If you're seeing something different, I'd actually love to hear what's working.`,
+    linkedin: `Post-Claude 4.6, what percentage of enterprise inbound is actually qualified? Curious if the ratio matches what I'm seeing elsewhere.`,
+    call: `Claude 4.6 enterprise API launch. Wondering how you're separating real buyers from the wave of inbound.`
   },
   stripe: {
-    email: `Subject: AI infra GTM sequencing
+    email: `Subject: AI infra vs payments ICPs
 
-Stripe's AI infrastructure rollout puts you in a new competitive motion — you're not just selling payments anymore, you're selling platform.
+Are you seeing different account profiles convert on AI infrastructure versus core payments? Most platform expansions fracture the ICP before teams realize it.
 
-The challenge I've seen with platform expansions: existing customers are the fastest path to revenue, but SDR teams default to net-new prospecting because that's what the playbook says.
-
-We help identify which existing accounts have expansion signals and which net-new targets actually match your new platform story.
-
-15 minutes to compare how you're thinking about account sequencing for the AI push?`,
-    linkedin: `AI infrastructure launch changes the Stripe GTM motion significantly. Curious if the SDR team is already seeing different account profiles convert — or if that's still emerging.`,
-    call: `Calling about the AI infrastructure launch. Platform expansion usually means the best opportunities are hiding in existing accounts, but SDR teams keep hunting net-new. Wanted to see how you're balancing that.`
+Would be curious to compare notes if you're tracking that.`,
+    linkedin: `AI infrastructure launch. Are different account profiles converting versus payments, or same ICP?`,
+    call: `AI infrastructure rollout. Curious if your converting accounts look different from core payments.`
   },
   databricks: {
-    email: `Subject: Enterprise surge prioritization
+    email: `Subject: When every account looks hot
 
-The Databricks enterprise adoption surge is visible from the outside — which means your SDR team is probably dealing with more qualified accounts than they can work effectively.
+Enterprise adoption surge is visible from the outside. The counterintuitive problem: when demand spikes, prioritization breaks because everything looks good.
 
-The counterintuitive problem at this stage: when everything looks good, nothing gets prioritized. Reps spread too thin across too many "hot" accounts.
-
-We help teams identify the 20% of accounts that drive 80% of pipeline and build sequences around those, not spray across everything.
-
-Would a quick look at how we'd tier your current target list be valuable?`,
-    linkedin: `Enterprise adoption surge means your SDR team has the opposite of a demand problem — too many good accounts, not enough prioritization. How are you deciding what gets worked first?`,
-    call: `Calling about the enterprise adoption numbers. When demand spikes like this, the usual problem is prioritization, not prospecting. Wanted to share how we help SDR teams focus on the right 20%.`
+How is your team deciding what gets worked first versus what sits in nurture?`,
+    linkedin: `Enterprise surge means too many good accounts. How are you deciding what gets worked first?`,
+    call: `Enterprise adoption is spiking. Calling to see how you're prioritizing when everything looks like a good opportunity.`
   },
   openai: {
-    email: `Subject: Enterprise demand triage
+    email: `Subject: Turning away qualified leads
 
-OpenAI's enterprise demand is public knowledge at this point — which means you're probably turning away more qualified leads than most companies generate.
+You're probably rejecting more qualified enterprise leads than most companies generate. The question is whether that triage is systematic or gut feel.
 
-The problem I'd guess you're facing: every account looks strategic, but SDR capacity is finite. Without a systematic way to score and sequence, you're leaving pipeline on the table.
-
-We help enterprise teams like yours identify which accounts are ready to move vs. which need nurturing — based on signals beyond company size.
-
-Worth 15 minutes to see how we'd approach your current queue?`,
-    linkedin: `Enterprise demand at OpenAI's scale creates a unique problem: too many good accounts, not enough prioritization. Curious how your SDR team decides what gets attention first.`,
-    call: `Quick reason for the call: enterprise demand at your scale usually means triage is the bottleneck, not prospecting. Wanted to share how we help teams prioritize when everything looks like a good opportunity.`
+Worth comparing approaches? I've seen a few patterns that might be relevant.`,
+    linkedin: `At your demand level, triage matters more than prospecting. Is that systematic yet or still being figured out?`,
+    call: `Enterprise demand at your scale. Curious if the triage process is systematic or still evolving.`
   },
   snowflake: {
-    email: `Subject: Platform expansion coverage
+    email: `Subject: More products, same playbook?
 
-Snowflake's platform breadth keeps growing — which means the SDR motion is getting more complex, not simpler.
+Platform breadth keeps growing. More products means more personas means more accounts that look qualified but don't close.
 
-The pattern I see with platform companies: more products = more buying personas = more accounts that look "good" but don't actually close. The signal-to-noise ratio drops.
-
-We help SDR teams cut through that noise by identifying which accounts have real intent signals for specific products, not just generic interest.
-
-Would it help to see how we'd segment your target accounts by product fit?`,
-    linkedin: `Platform expansion usually means more complexity for SDR teams, not less. Curious how you're matching accounts to specific Snowflake products vs. running a generic motion.`,
-    call: `Calling because platform expansion usually creates SDR complexity — more products, more personas, more accounts that look good but don't convert. Wanted to share how we help teams cut through that.`
+Is your SDR team running different motions per product, or still one playbook across everything?`,
+    linkedin: `More products, more personas, more noise. Running different SDR motions per product line?`,
+    call: `Platform expansion. Are you running different SDR motions per product or one playbook?`
   },
   brex: {
-    email: `Subject: Fintech expansion sequencing
+    email: `Subject: Wider ICP, same conversion rate?
 
-Brex's infrastructure expansion is visible in the product announcements — which usually means the SDR team is working a wider ICP than six months ago.
+Infrastructure expansion usually means the ICP gets broader. Broader ICP usually means conversion rates drop before anyone notices.
 
-The challenge: broader ICP = more accounts that technically qualify, but conversion rates drop because messaging isn't specific enough.
-
-We help SDR teams identify which segments of the expanded ICP actually convert and build targeted sequences for each, rather than generic outreach.
-
-15 minutes to compare how you're handling the expanded target list?`,
-    linkedin: `Fintech infrastructure expansion usually means a wider ICP for SDR teams to cover. Curious how you're segmenting the new target accounts vs. running the same playbook.`,
-    call: `Calling about the infrastructure expansion. Broader ICP usually means lower conversion rates unless SDR messaging gets more specific. Wanted to see how you're approaching that.`
+Seeing that pattern, or has messaging kept pace with the product expansion?`,
+    linkedin: `Broader ICP from the infrastructure expansion. Has conversion rate held, or starting to drift?`,
+    call: `Infrastructure expansion usually widens the ICP. Curious if conversion rates have held.`
   },
   plaid: {
-    email: `Subject: Partnership-led account planning
+    email: `Subject: Direct vs partner-sourced accounts
 
-Plaid's enterprise partnership expansion means your SDR team is probably getting pulled into more complex, multi-stakeholder deals.
+Partnership deals require different account planning than direct sales. Most teams run the same motion for both and wonder why partner-sourced deals stall.
 
-The challenge I see: partnership deals require different account planning than direct sales, but most SDR teams run the same motion for both.
-
-We help teams identify which partnership-sourced accounts need multi-threaded outreach vs. which can be worked directly — and sequence accordingly.
-
-Worth a quick conversation on how you're handling partnership-led accounts today?`,
-    linkedin: `Enterprise partnership expansion changes the SDR motion — multi-stakeholder deals require different account planning than direct sales. How are you adjusting the approach?`,
-    call: `Calling about the partnership expansion. Those deals usually require different SDR planning than direct sales. Wanted to see if that complexity is already hitting your team.`
+How are you handling that split?`,
+    linkedin: `Partnership expansion. Are you running different motions for partner-sourced versus direct accounts?`,
+    call: `Enterprise partnerships. Curious how you're planning partner-sourced accounts differently from direct.`
   },
   "scale-ai": {
-    email: `Subject: Public sector + enterprise coverage
+    email: `Subject: Enterprise vs public sector motion
 
-Scale AI's expansion into both enterprise and public sector is a big surface area for an SDR team to cover.
+Enterprise and public sector are fundamentally different buying motions. Running one playbook for both usually means mediocre results in both.
 
-The challenge: these are fundamentally different buying motions, but most teams run a single playbook and wonder why conversion rates differ.
-
-We help teams identify which accounts fit which motion and build separate prioritization logic for each, rather than treating everything the same.
-
-15 minutes to see how we'd segment your current target list across both motions?`,
-    linkedin: `Enterprise + public sector expansion is a lot of surface area. Curious how your SDR team is differentiating the approach — or if it's still a single playbook.`,
-    call: `Calling about the enterprise and public sector expansion. Those are different buying motions, and most SDR teams run a single playbook for both. Wanted to see how you're handling that.`
+Is your SDR team differentiating, or still figuring that out?`,
+    linkedin: `Enterprise plus public sector is a lot of surface area. Same playbook or different motions?`,
+    call: `Enterprise and public sector expansion. Same SDR playbook or different approaches?`
   },
   mercury: {
-    email: `Subject: Startup segment scaling
+    email: `Subject: Free banking, real buyers
 
-Mercury's startup momentum is strong — which usually means the SDR challenge shifts from "find leads" to "qualify efficiently."
+Startup momentum means lots of signups. The hard part is figuring out which ones have actual budget versus which are kicking tires because banking is free.
 
-At scale, the problem isn't volume. It's figuring out which startups have real budget vs. which are kicking tires because banking is free.
-
-We help teams identify buying signals that correlate with actual conversion, not just signup activity.
-
-Would a quick look at how we'd score your current startup pipeline be useful?`,
-    linkedin: `Startup segment momentum at Mercury's scale creates a qualification challenge — lots of interest, but conversion signals are harder to read. How are you sorting real buyers from browsers?`,
-    call: `Calling about the startup segment growth. At this scale, qualification is usually the bottleneck. Wanted to share how we help teams identify which startups actually convert.`
+What signals are you using to sort them?`,
+    linkedin: `Lots of startup interest. How are you identifying which ones have real budget versus free tier explorers?`,
+    call: `Startup momentum is strong. Curious how you're identifying real buyers versus tire kickers.`
   },
   "modern-treasury": {
-    email: `Subject: Payment ops scaling
+    email: `Subject: Inbound speed vs inbound fit
 
-Modern Treasury's focus on payment ops scale is resonating — which means inbound quality matters more than volume now.
+Payment ops positioning is landing. When inbound volume rises, most SDR teams optimize for speed. The ones that win optimize for fit.
 
-The challenge I see at this stage: SDR teams optimize for speed (work every lead fast) when they should optimize for fit (work the right leads deeply).
-
-We help teams identify which inbound accounts match your actual conversion patterns and prioritize those, rather than first-in-first-out processing.
-
-15 minutes to compare how you're handling lead prioritization today?`,
-    linkedin: `Payment ops scale messaging is landing — curious how the SDR team is prioritizing which inbound to work deeply vs. which to nurture. That's usually where conversion rates hide.`,
-    call: `Calling about the payment ops positioning. At this stage, lead prioritization usually matters more than lead volume. Wanted to see how you're thinking about that.`
+Which side is your team leaning toward right now?`,
+    linkedin: `Inbound is up. Optimizing for speed or for fit? That choice usually determines conversion rates.`,
+    call: `Payment ops messaging is resonating. Curious if you're optimizing inbound for speed or fit.`
   },
 };
 
@@ -412,29 +364,28 @@ function buildDeterministicOutreachBundle(args: {
     };
   }
 
-  // Fallback for accounts without specific outreach
+  // Fallback for accounts without specific outreach - varied structure, no em-dashes
   const seed = deterministicIndex(account.id, 3);
 
   const emailPatterns = [
-    `Subject: ${signal.category} timing\n\n${signal.title} caught my attention — that kind of movement usually changes how ${maturity} teams decide where to focus.\n\nThe pattern I see: when ${signal.category.toLowerCase()} signals spike, account prioritization becomes the bottleneck, not prospecting.\n\nWe help SDR teams identify which accounts are actually ready to move vs. which are just showing activity.\n\n15 minutes to see how we'd approach ${account.name}'s target list?`,
-    `Subject: ${account.industry} prioritization\n\n${signal.summary}\n\nFor ${maturity} companies in ${account.industry.toLowerCase()}, that usually creates a gap between market opportunity and SDR focus.\n\nWe help teams close that gap by scoring accounts on actual buying signals, not just firmographics.\n\nWorth a quick look at how we'd prioritize your current pipeline?`,
-    `Subject: Quick ${signal.category.toLowerCase()} question\n\n${signal.title} suggests ${account.name} is at a decision point about where to focus SDR effort.\n\n${research.recommendedGtmAngle}\n\nWe help teams make that call systematically rather than gut-feel. Would a 15-minute walkthrough be useful?`,
+    `Subject: ${signal.category.toLowerCase()} timing\n\n${signal.title}. For ${maturity} teams, that usually breaks whatever prioritization system was working before.\n\nIs that landing, or is demand still the bottleneck?`,
+    `Subject: Quick ${signal.category.toLowerCase()} question\n\nHow is the team deciding which accounts to prioritize given ${signal.title.toLowerCase()}?\n\nCurious if you're seeing the same pattern I'm hearing from other ${account.industry.toLowerCase()} companies.`,
+    `Subject: ${maturity} prioritization\n\n${signal.summary}\n\nThat signal usually means account prioritization matters more than lead volume. Worth comparing approaches?`,
   ];
 
   const linkedinPatterns = [
-    `${signal.title} is a clear signal. Curious how your SDR team is adjusting prioritization — or if that's still being figured out.`,
-    `${signal.category} momentum at ${account.name} usually means account prioritization becomes the bottleneck. How are you handling that?`,
-    `Quick question: with ${signal.title.toLowerCase()}, how is the team deciding which accounts get attention first?`,
+    `${signal.title}. How is that changing which accounts get prioritized?`,
+    `${signal.category} momentum usually means prioritization becomes the bottleneck. Seeing that?`,
+    `Quick question: with ${signal.title.toLowerCase()}, how is the team deciding what gets worked first?`,
   ];
 
   const callPatterns = [
-    `${signal.title} — that's why I'm calling. At this stage, most teams need a tighter way to prioritize which accounts get SDR attention first.`,
-    `Calling because ${signal.category.toLowerCase()} signals like yours usually mean prioritization is the bottleneck. Wanted to see if that's on your radar.`,
-    `Quick context: ${signal.summary} Most ${maturity} teams I talk to are dealing with prioritization challenges at this stage.`,
+    `${signal.title}. Calling to see how that's changing your account prioritization.`,
+    `${signal.category} signal caught my attention. Curious how you're handling prioritization.`,
   ];
 
   const followThrough = recentOutreach
-    ? `\n\nNote: there's been ${recentOutreach.channel} activity on "${recentOutreach.subject}" — worth building on that context.`
+    ? `\n\n(Building on the earlier ${recentOutreach.channel} thread about "${recentOutreach.subject}")`
     : "";
 
   return {
