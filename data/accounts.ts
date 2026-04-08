@@ -121,4 +121,28 @@ export const accounts: Account[] = [
       "OpenAI is likely managing fast-moving enterprise demand, creating a strong use case for account intelligence, prioritization, and autonomous planning support.",
     recommendedPersona: "Head of Enterprise Expansion",
   },
+  {
+    id: "vercel",
+    name: "Vercel",
+    industry: "Developer Infrastructure",
+    employeeRange: "500-1,000",
+    region: "Global",
+    opportunityScore: 93,
+    trendScore: 95,
+    hypothesis:
+      "Vercel's AI Gateway launch and v0 traction signal aggressive expansion into AI-native developer tooling, creating urgency around enterprise pipeline coverage.",
+    recommendedPersona: "VP of Sales",
+  },
+  {
+    id: "anthropic",
+    name: "Anthropic",
+    industry: "AI Safety and Research",
+    employeeRange: "1,000-2,000",
+    region: "Global",
+    opportunityScore: 96,
+    trendScore: 97,
+    hypothesis:
+      "Claude 4.6 launch and enterprise API expansion indicate Anthropic is scaling commercial operations rapidly, requiring tighter account prioritization.",
+    recommendedPersona: "Head of Enterprise GTM",
+  },
 ];

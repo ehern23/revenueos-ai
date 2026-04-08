@@ -4,10 +4,10 @@ export const signals: Signal[] = [
   {
     id: "signal-ramp-ml-hiring",
     accountId: "ramp",
-    title: "Ramp hiring ML engineers",
+    title: "Ramp doubles enterprise customers, hires 12 ML engineers",
     category: "Hiring",
     summary:
-      "Ramp is expanding machine learning hiring, signaling investment in AI-powered financial workflows and decisioning systems.",
+      "Ramp doubled enterprise customer count in Q1 and posted 12 ML engineering roles, signaling aggressive AI investment in financial workflows.",
     impact: "high",
     detectedAt: "2026-03-03",
   },
@@ -100,5 +100,25 @@ export const signals: Signal[] = [
       "OpenAI's rapid enterprise pull creates a strong fit for coordinated account planning and AI-assisted revenue operations.",
     impact: "high",
     detectedAt: "2026-03-09",
+  },
+  {
+    id: "signal-vercel-ai-gateway",
+    accountId: "vercel",
+    title: "Vercel launches AI Gateway and v0 hits 1M users",
+    category: "Product",
+    summary:
+      "Vercel shipped AI Gateway for unified model routing and v0 crossed 1M monthly active users, signaling aggressive AI infrastructure expansion.",
+    impact: "high",
+    detectedAt: "2026-03-10",
+  },
+  {
+    id: "signal-anthropic-claude-enterprise",
+    accountId: "anthropic",
+    title: "Claude 4.6 launch with enterprise API expansion",
+    category: "Product",
+    summary:
+      "Anthropic released Claude 4.6 with expanded enterprise API capabilities, indicating scaled commercial motion and enterprise GTM buildout.",
+    impact: "high",
+    detectedAt: "2026-03-11",
   },
 ];

@@ -18,10 +18,10 @@ import { deals } from "@/lib/dashboard-data";
 
 export function DealsTable() {
   return (
-    <Card className="border-slate-200/70 bg-white/80 shadow-sm backdrop-blur">
+    <Card className="card-hover border-white/[0.06] bg-[#111827]">
       <CardHeader>
-        <CardTitle>Active opportunities</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-slate-100">Active opportunities</CardTitle>
+        <CardDescription className="text-slate-400">
           High-signal deals prioritized for this week&apos;s operating review.
         </CardDescription>
       </CardHeader>
@@ -40,25 +40,25 @@ export function DealsTable() {
           <TableBody>
             {deals.map((deal) => (
               <TableRow key={deal.account}>
-                <TableCell className="font-medium text-slate-950">
+                <TableCell className="font-medium text-slate-100">
                   {deal.account}
                 </TableCell>
-                <TableCell className="text-slate-600">{deal.owner}</TableCell>
+                <TableCell className="text-slate-400">{deal.owner}</TableCell>
                 <TableCell>
                   <Badge
                     variant="outline"
-                    className="border-slate-300 bg-white text-slate-700"
+                    className="border-white/[0.1] bg-white/[0.02] text-slate-300"
                   >
                     {deal.stage}
                   </Badge>
                 </TableCell>
-                <TableCell className="font-medium text-slate-950">
+                <TableCell className="font-mono font-medium text-slate-100">
                   {deal.arr}
                 </TableCell>
-                <TableCell className="text-slate-600">
+                <TableCell className="text-slate-400">
                   {deal.closeDate}
                 </TableCell>
-                <TableCell className="text-emerald-700">
+                <TableCell className="font-mono text-emerald-400">
                   {deal.confidence}
                 </TableCell>
               </TableRow>
