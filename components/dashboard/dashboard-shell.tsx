@@ -58,8 +58,11 @@ export function DashboardShell({ children }: Readonly<{ children: ReactNode }>) 
               <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
                 Workspace
               </p>
-              <h1 className="text-base font-semibold tracking-tight text-slate-100">
-                RevenueOS AI
+              <h1 className="flex items-center gap-2 text-base font-bold tracking-tight text-slate-100">
+                RevenueOS
+                <span className="rounded bg-amber-500 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#0A0E17]">
+                  AI
+                </span>
               </h1>
             </div>
           </div>
@@ -79,7 +82,7 @@ export function DashboardShell({ children }: Readonly<{ children: ReactNode }>) 
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 space-y-1 overflow-y-auto px-3">
+          <nav className="flex-1 space-y-1.5 overflow-y-auto px-3 py-2">
             {appNavigation.map((item) => {
               const isActive = pathname === item.href;
               const Icon = iconMap[item.href];

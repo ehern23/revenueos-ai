@@ -5,13 +5,13 @@ import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-plus-jakarta-sans",
   display: "swap",
 });
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
