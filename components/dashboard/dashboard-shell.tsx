@@ -13,6 +13,7 @@ import {
   type LucideIcon,
   PanelLeftClose,
   Radar,
+  Radio,
   Search,
   Map,
   MessageSquareMore,
@@ -28,6 +29,7 @@ import {
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<AppNavigationItem["href"], LucideIcon> = {
+  "/signal-feed": Radio,
   "/prospecting-copilot": Compass,
   "/revenue-command-center": LayoutDashboard,
   "/territory-strategist": Map,

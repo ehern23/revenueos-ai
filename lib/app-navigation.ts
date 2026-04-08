@@ -9,6 +9,13 @@ export const defaultAppHref = "/revenue-command-center";
 
 export const appNavigation: AppNavigationItem[] = [
   {
+    href: "/signal-feed",
+    label: "Signal Feed",
+    description: "Real-time buying signals across your target accounts.",
+    purpose:
+      "This workspace surfaces live signals like hiring spikes, funding rounds, and product launches so you can act on opportunities before competitors.",
+  },
+  {
     href: "/prospecting-copilot",
     label: "Prospecting Copilot",
     description: "AI-guided lead discovery and outreach preparation.",
